@@ -5,17 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Carisma App</title>
 <script>
-  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  if (/android/i.test(userAgent)) {
-    window.location.href = "https://play.google.com/store/apps/details?id=carisma.app.com";
-  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-    window.location.href = "https://apps.apple.com/us/app/carisma-app/id6557075092";
-  } else {
-    window.location.href = "https://carisma.com.br"; // fallback opcional
-  }
+  (function () {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    var android = "https://play.google.com/store/apps/details?id=carisma.app.com";
+    var ios = "https://apps.apple.com/us/app/carisma-app/id6557075092";
+    var desktop = "https://www.instagram.com/carismamorumbi/";
+
+    if (/android/i.test(userAgent)) {
+      // Se for Android → Play Store
+      window.location.replace(android);
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // Se for iOS → App Store
+      window.location.replace(ios);
+    } else {
+      // Qualquer outro (computador) → Instagram
+      window.location.replace(desktop);
+    }
+  })();
 </script>
+
+<style>
+  body {
+    background: #7e161b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .msg {
+    font-size: 18px;
+    text-align: center;
+  }
+</style>
 </head>
-<body style="background:#7e161b; color:white; display:flex; align-items:center; justify-content:center; height:100vh; font-family:sans-serif;">
-  <p>Redirecionando para o app Carisma...</p>
+<body>
+  <div class="msg">Redirecionando para o app Carisma…</div>
 </body>
 </html>
