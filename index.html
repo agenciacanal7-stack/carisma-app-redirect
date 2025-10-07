@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carisma App</title>
+<script>
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  if (/android/i.test(userAgent)) {
+    window.location.href = "https://play.google.com/store/apps/details?id=carisma.app.com";
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    window.location.href = "https://apps.apple.com/us/app/carisma-app/id6557075092";
+  } else {
+    window.location.href = "https://carisma.com.br"; // fallback opcional
+  }
+</script>
+</head>
+<body style="background:#7e161b; color:white; display:flex; align-items:center; justify-content:center; height:100vh; font-family:sans-serif;">
+  <p>Redirecionando para o app Carisma...</p>
+</body>
+</html>
